@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://daw8k7cyq43u1"]
+
+[ext_resource type="Script" path="res://clhud.gd" id="1_5k8kl"]
+
+[node name="CLHUD" type="CanvasLayer"]
+script = ExtResource("1_5k8kl")
+
+[node name="NoticeBegin" type="PanelContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 29.12
+offset_right = 64.0
+offset_bottom = 69.12
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="NoticeBegin"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Press X to begin"
+horizontal_alignment = 1
+
+[node name="NoticeRestart" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 29.12
+offset_right = 64.0
+offset_bottom = 69.12
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="NoticeRestart"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Press X to restart"
+horizontal_alignment = 1
