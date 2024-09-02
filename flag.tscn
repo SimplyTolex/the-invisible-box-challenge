@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn70f0yioc1nl"]
+
+[ext_resource type="Script" path="res://flag.gd" id="1_85wdi"]
+[ext_resource type="Texture2D" uid="uid://c3g0yrp4bw2ga" path="res://placeholder-gray-20-20.png" id="1_kclim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isdho"]
+
+[node name="Flag" type="Area2D"]
+script = ExtResource("1_85wdi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_isdho")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kclim")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

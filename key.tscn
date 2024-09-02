@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://brxbjieotiwgl"]
+
+[ext_resource type="Script" path="res://key.gd" id="1_alxgp"]
+[ext_resource type="Texture2D" uid="uid://capy2b5l3ro04" path="res://placeholder-yellow-20-20.png" id="1_v1fs3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbp17"]
+
+[node name="Key" type="Area2D" groups=["key"]]
+script = ExtResource("1_alxgp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tbp17")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v1fs3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

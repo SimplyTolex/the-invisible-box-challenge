@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://c85kvqr3fjthf"]
+
+[ext_resource type="Script" path="res://end_screen.gd" id="1_hfxpc"]
+[ext_resource type="Texture2D" uid="uid://bfod70gljcc0l" path="res://cake.png" id="3_bg3dl"]
+[ext_resource type="Texture2D" uid="uid://dxe7vpf45ga21" path="res://white arrow.png" id="4_7xhe6"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hfxpc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -80.0
+offset_right = 135.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]You've completed
+the game!
+Congratulations!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.825
+offset_top = -64.0
+offset_right = 131.825
+offset_bottom = 2.0
+grow_vertical = 0
+
+[node name="LevelSelectButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back to Title"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -115.0
+offset_right = 150.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bg3dl")
+
+[node name="Tip" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 69.0
+offset_top = -30.0
+offset_right = 109.0
+offset_bottom = 10.0
+
+[node name="WhiteArrow" type="Sprite2D" parent="Tip"]
+position = Vector2(439, 475)
+rotation = 1.24821
+scale = Vector2(0.267, 0.267)
+texture = ExtResource("4_7xhe6")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tip"]
+offset_left = 472.0
+offset_top = 450.0
+offset_right = 698.0
+offset_bottom = 530.0
+bbcode_enabled = true
+text = "The cake isn't
+a lie here"
+scroll_active = false
+
+[connection signal="pressed" from="VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]

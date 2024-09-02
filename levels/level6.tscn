@@ -1,0 +1,103 @@
+[gd_scene load_steps=18 format=4 uid="uid://c0cs5lcsa8dxp"]
+
+[ext_resource type="Texture2D" uid="uid://ruradqryowot" path="res://placeholder-orange-20-20.png" id="1_538cn"]
+[ext_resource type="Texture2D" uid="uid://bupltwpxlrjar" path="res://placeholder-green-20-20.png" id="2_5fu76"]
+[ext_resource type="Script" path="res://boxes.gd" id="3_7hmqk"]
+[ext_resource type="Texture2D" uid="uid://capy2b5l3ro04" path="res://placeholder-yellow-20-20.png" id="3_ql7jn"]
+[ext_resource type="PackedScene" uid="uid://cljrmgxoh8gcl" path="res://player.tscn" id="4_ejla8"]
+[ext_resource type="PackedScene" uid="uid://bn70f0yioc1nl" path="res://flag.tscn" id="5_or2fn"]
+[ext_resource type="PackedScene" uid="uid://brxbjieotiwgl" path="res://key.tscn" id="5_wdl27"]
+[ext_resource type="PackedScene" uid="uid://daw8k7cyq43u1" path="res://clhud.tscn" id="6_8sqf0"]
+[ext_resource type="PackedScene" uid="uid://chqbj0jg15pej" path="res://levels/level7.tscn" id="7_yhrgc"]
+[ext_resource type="Texture2D" uid="uid://dxe7vpf45ga21" path="res://white arrow.png" id="9_q2gy4"]
+
+[sub_resource type="Gradient" id="Gradient_36b61"]
+offsets = PackedFloat32Array(0.165217, 0.643478, 1)
+colors = PackedColorArray(0.627722, 0.316769, 0.136238, 1, 0.627626, 0.317082, 0.1366, 0.643678, 0.627451, 0.317647, 0.137255, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5g2jd"]
+gradient = SubResource("Gradient_36b61")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j472k"]
+texture = ExtResource("1_538cn")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="TileSet" id="TileSet_enujg"]
+tile_size = Vector2i(20, 20)
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_j472k")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2hjx"]
+texture = ExtResource("2_5fu76")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o1pft"]
+texture = ExtResource("3_ql7jn")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fkp0p"]
+tile_size = Vector2i(20, 20)
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_c2hjx")
+sources/1 = SubResource("TileSetAtlasSource_o1pft")
+
+[node name="Level6" type="Node2D"]
+
+[node name="BGGradient" type="Sprite2D" parent="."]
+position = Vector2(399.5, 249.5)
+scale = Vector2(11.8906, 7.20313)
+texture = SubResource("GradientTexture2D_5g2jd")
+
+[node name="LevelBorder" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAABcAAAAAAAAAAAAAABgAAAAAAAAAAAABABgAAAAAAAAAAAACABgAAAAAAAAAAAADABgAAAAAAAAAAAAEABgAAAAAAAAAAAAFABgAAAAAAAAAAAAGABgAAAAAAAAAAAAHABgAAAAAAAAAAAAIABgAAAAAAAAAAAAJABgAAAAAAAAAAAAKABgAAAAAAAAAAAALABgAAAAAAAAAAAAMABgAAAAAAAAAAAANABgAAAAAAAAAAAAOABgAAAAAAAAAAAAPABgAAAAAAAAAAAAQABgAAAAAAAAAAAAXABgAAAAAAAAAAAAYABgAAAAAAAAAAAAZABgAAAAAAAAAAAAaABgAAAAAAAAAAAAbABgAAAAAAAAAAAAcABgAAAAAAAAAAAAdABgAAAAAAAAAAAAeABgAAAAAAAAAAAAfABgAAAAAAAAAAAAgABgAAAAAAAAAAAAhABgAAAAAAAAAAAAiABgAAAAAAAAAAAAjABgAAAAAAAAAAAAkABgAAAAAAAAAAAAlABgAAAAAAAAAAAAmABgAAAAAAAAAAAAnABcAAAAAAAAAAAAnABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAAAABIAAAAAAAAAAAAAABMAAAAAAAAAAAAAABQAAAAAAAAAAAAAABUAAAAAAAAAAAAAABYAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAhAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAjAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAlAAAAAAAAAAAAAAAmAAAAAAAAAAAAAAAnAAAAAAAAAAAAAAAnAAEAAAAAAAAAAAAnAAIAAAAAAAAAAAAnAAMAAAAAAAAAAAAnAAQAAAAAAAAAAAAnAAUAAAAAAAAAAAAnAAYAAAAAAAAAAAAnAAcAAAAAAAAAAAAnAAgAAAAAAAAAAAAnAAkAAAAAAAAAAAAnAAoAAAAAAAAAAAAnAAsAAAAAAAAAAAAnAAwAAAAAAAAAAAAnAA0AAAAAAAAAAAAnAA4AAAAAAAAAAAAnAA8AAAAAAAAAAAAnABAAAAAAAAAAAAAnABEAAAAAAAAAAAAnABIAAAAAAAAAAAAnABMAAAAAAAAAAAAnABQAAAAAAAAAAAAnABUAAAAAAAAAAAAnABYAAAAAAAAAAAASABgAAAAAAAAAAAATABgAAAAAAAAAAAAUABgAAAAAAAAAAAAVABgAAAAAAAAAAAAWABgAAAAAAAAAAAARABgAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_enujg")
+
+[node name="Boxes" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAVABQAAAAAAAAAAAAVABMAAAAAAAAAAAAWABMAAAAAAAAAAAAXABMAAAAAAAAAAAAXABQAAAAAAAAAAAAWABQAAAAAAAAAAAAVABUAAAAAAAAAAAAVABYAAAAAAAAAAAAVABcAAAAAAAAAAAAWABcAAAAAAAAAAAAWABYAAAAAAAAAAAAXABYAAAAAAAAAAAAXABUAAAAAAAAAAAAWABUAAAAAAAAAAAAXABcAAAAAAAAAAAAPABYAAAAAAAAAAAAQABYAAAAAAAAAAAARABYAAAAAAAAAAAAPABUAAAAAAAAAAAAQABUAAAAAAAAAAAARABUAAAAAAAAAAAAPABcAAAAAAAAAAAAQABcAAAAAAAAAAAARABcAAAAAAAAAAAAUAA8AAAAAAAAAAAATAA8AAAAAAAAAAAASAA8AAAAAAAAAAAAOAA0AAAAAAAAAAAANAA0AAAAAAAAAAAAMAA0AAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAIAAwAAAAAAAAAAAAHAAwAAAAAAAAAAAAGAAwAAAAAAAAAAAAFAAwAAAAAAAAAAAAEAAsAAAAAAAAAAAAEAAwAAAAAAAAAAAAbABcAAAAAAAAAAAAcABcAAAAAAAAAAAAdABcAAAAAAAAAAAAbABUAAAAAAAAAAAAbABYAAAAAAAAAAAAcABYAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_fkp0p")
+script = ExtResource("3_7hmqk")
+
+[node name="Player" parent="." instance=ExtResource("4_ejla8")]
+position = Vector2(60, 460)
+collision_mask = 2
+
+[node name="Flag" parent="." instance=ExtResource("5_or2fn")]
+unique_name_in_owner = true
+position = Vector2(750, 450)
+levelToLoad = ExtResource("7_yhrgc")
+requireKeyToClear = true
+
+[node name="CLHUD" parent="." instance=ExtResource("6_8sqf0")]
+visible = false
+
+[node name="Key" parent="." instance=ExtResource("5_wdl27")]
+position = Vector2(130, 210)
+
+[node name="Tip" type="Node2D" parent="."]
+position = Vector2(-350, -30)
+rotation = 0.0780291
+
+[node name="WhiteArrow" type="Sprite2D" parent="Tip"]
+position = Vector2(503.32, 151.226)
+rotation = 1.57079
+scale = Vector2(0.267, 0.267)
+texture = ExtResource("9_q2gy4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tip"]
+offset_left = 520.0
+offset_top = 110.0
+offset_right = 810.0
+offset_bottom = 161.0
+rotation = -0.261799
+text = "Pick up the key first
+to complete levels that have keys"
+scroll_active = false
+
+[connection signal="began_level" from="Player" to="Boxes" method="_on_player_began_level"]
+[connection signal="began_level" from="Player" to="CLHUD" method="_on_player_began_level"]
